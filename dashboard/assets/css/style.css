@@ -1,0 +1,26 @@
+.username {
+    text-transform: lowercase;
+}
+
+td.break-show {
+    
+    width:  70px;
+}
+
+.ow-break-word {
+    overflow-wrap: break-word;
+    width: 13em;
+}
+
+button.btn.btn-icon.btn-secondary.btn-card-1, button.btn.btn-icon.btn-info.btn-card-1 {
+    width: 100%;
+}
+
+span.font-weight-bold.mb-0.font-biru {
+    color: #172b4d;
+    font-size: 15px;
+}
+
+.h5.font-weight-300.capitalize-css {
+    text-transform: capitalize;;
+}
