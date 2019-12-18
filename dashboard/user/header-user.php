@@ -34,8 +34,8 @@ include('query-user.php');
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="../index.html">
-        <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+      <a class="navbar-brand pt-0" href="./index.php">
+        <img src="../assets/img/brand/logo_smartcanteen_regular.png" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <!-- Collapse -->
@@ -139,7 +139,11 @@ include('query-user.php');
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Tagihan Pesanan Saya</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "Tahap Dev."?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo "Rp. 12500,-"?></span>
+                        <button class='btn btn-icon btn-warning btn-card-1' type='button'>
+                          <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
+                          <span class='btn-inner--text'>Bayar</span>
+                        </button>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -167,15 +171,7 @@ include('query-user.php');
 
                                 </button>";
                         } else {
-                            echo "
-                                <p class='mt-3 mb-0 text-muted text-sm'>                                         
-                                <button class='btn btn-icon btn-info btn-card-1' type='button'>
-                                <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
-
-                                <span class='btn-inner--text'>Top Up</span>
-
-                                </button>
-                                </p>";
+                            echo "";
                         }
                       ?>
                     </div>
@@ -194,6 +190,10 @@ include('query-user.php');
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Top Up</h5>
+                      
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-wrap">Masukkan jumlah uang yang kamu inginkan, kemudian hubungi admin untuk konfirmasi.</span>
+                  </p>
                       <span class="h2 font-weight-bold mb-0">
                           <button class='btn btn-icon btn-success btn-card-1' type='button'>
                             <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
@@ -207,10 +207,6 @@ include('query-user.php');
                       </div>
                     </div>
                   </div>
-                  
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-wrap">Masukkan jumlah uang yang kamu inginkan, kemudian hubungi admin untuk konfirmasi.</span>
-                  </p>
                 </div>
               </div>
             </div>
