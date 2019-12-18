@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    LOGIN
+    REGISTER
   </title>
   <!-- Favicon -->
   <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
@@ -79,7 +79,6 @@
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
               <h1 class="text-white">Smart Canteen</h1>
-              <p class="text-lead text-light text-uppercase">Silahkan Login</p>
             </div>
           </div>
         </div>
@@ -97,29 +96,45 @@
           <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Silahkan masuk dengan akun anda.</small>
+                
               </div>
-              <form action="./proses.php" method="POST">
-                <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+              <form>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Name" type="text">
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
                   </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Email" type="email">
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" name="password">
                   </div>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4" name="login_admin">Sign in</button>
-                </div>
-              </form>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Password" type="password">
+                    </div>
+                  </div>
+                  <div class="row my-4">
+                    <div class="col-12">
+                      <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                        <label class="custom-control-label" for="customCheckRegister"><span>I agree with the <a href="#">Privacy Policy</a></span></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary mt-4">Create account</button>
+                  </div>
+                </form>
             </div>
           </div>
         </div>
