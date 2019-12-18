@@ -1,9 +1,10 @@
 <?php 
-session_start();
+session_start();    
 if($_SESSION['level'] == 'admin') {
     header("location:../admin/");
 } else if($_SESSION['level'] == 'user') {
     include('header-user.php');
+    include('view-menu.php');
     include('footer-user.php');
 } else {
     session_destroy();
