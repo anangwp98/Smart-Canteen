@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Des 2019 pada 17.45
+-- Waktu pembuatan: 18 Des 2019 pada 16.56
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.8
 
@@ -45,7 +45,8 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `dompet` (
   `id_dompet` varchar(20) NOT NULL,
-  `saldo` bigint(50) NOT NULL
+  `saldo` bigint(50) NOT NULL,
+  `id_user` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -102,7 +103,8 @@ CREATE TABLE `pemasanan` (
 CREATE TABLE `topup` (
   `id_topup` varchar(50) NOT NULL,
   `jml_topup` bigint(20) NOT NULL,
-  `tgl_topup` date NOT NULL
+  `tgl_topup` date NOT NULL,
+  `id_user` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -120,9 +122,15 @@ CREATE TABLE `user` (
   `alamat` text NOT NULL,
   `tgl_lahir` date NOT NULL,
   `telepon` varchar(15) NOT NULL,
-  `id_dompet` varchar(20) NOT NULL,
-  `id_topup` varchar(20) NOT NULL
+  `level` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `password`, `email`, `jk`, `alamat`, `tgl_lahir`, `telepon`, `level`) VALUES
+('user', 'TEST USER 1', 'user', 'user@gmail.com', 'L', 'user_alamat', '2019-12-03', '08197281', 'user');
 
 --
 -- Indexes for dumped tables
@@ -138,7 +146,8 @@ ALTER TABLE `admin`
 -- Indeks untuk tabel `dompet`
 --
 ALTER TABLE `dompet`
-  ADD PRIMARY KEY (`id_dompet`);
+  ADD PRIMARY KEY (`id_dompet`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `menu`
@@ -166,19 +175,24 @@ ALTER TABLE `pemasanan`
 -- Indeks untuk tabel `topup`
 --
 ALTER TABLE `topup`
-  ADD PRIMARY KEY (`id_topup`);
+  ADD PRIMARY KEY (`id_topup`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `id_dompet` (`id_dompet`),
-  ADD UNIQUE KEY `id_topup` (`id_topup`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `dompet`
+--
+ALTER TABLE `dompet`
+  ADD CONSTRAINT `dompet_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ketidakleluasaan untuk tabel `pedagang`
@@ -195,11 +209,10 @@ ALTER TABLE `pemasanan`
   ADD CONSTRAINT `pemasanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Ketidakleluasaan untuk tabel `topup`
 --
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_dompet`) REFERENCES `dompet` (`id_dompet`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`id_topup`) REFERENCES `topup` (`id_topup`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `topup`
+  ADD CONSTRAINT `topup_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
