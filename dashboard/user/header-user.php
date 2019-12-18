@@ -1,30 +1,6 @@
 <?php 
 include('../koneksi.php');
-
-// cek apakah yang mengakses halaman ini sudah login
-if(!isset($_SESSION['username'])){
-	header("location:./../index.php");
-} else {
-    $sql_view_saldo = "SELECT dompet.saldo as 'jmlsaldo' FROM `dompet` JOIN users ON users.id=dompet.id_user WHERE id_user='$_SESSION[id]'";
-    $query_view_saldo= mysqli_query($koneksi, $sql_view_saldo );
-    $jml_saldo = mysqli_fetch_array($query_view_saldo);
-    
-    $cek_data = mysqli_num_rows($query_view_saldo);
-
-    if($cek_data == NULL) {
-        $a = "Belum Memiliki Dompet";
-        $showCreateDompet = true;
-    } else if ($cek_data > 0){
-        $mataUang = "Rp. ";
-        $akhirMataUang = ",-";
-        $a = $mataUang.$jml_saldo['jmlsaldo'].$akhirMataUang;
-        $showCreateDompet = false;
-    } else if ($cek_data == 0) {
-        $a = '0';
-    } else {
-        echo "Gagal mendapatkan data";
-    }
-}
+include('query-user.php');
 ?>
 
 <!DOCTYPE html>
@@ -92,64 +68,10 @@ if(!isset($_SESSION['username'])){
           </div>
         </form>
         <!-- Navigation -->
-        <ul class="navbar-nav">
-          <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href=" ../../index.html"> <i class="ni ni-tv-2 text-primary"></i> Website
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
-            </a>
-          </li>
-        </ul>
-        <!-- Divider -->
-        <hr class="my-3">
-        <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Documentation</h6>
-        <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-              <i class="ni ni-spaceship"></i> Getting started
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Foundation
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-              <i class="ni ni-ui-04"></i> Components
-            </a>
-          </li>
-        </ul>
+        <?php
+        include('sidebar-user.php');
+        ?>
+        
       </div>
     </div>
   </nav>
@@ -175,7 +97,7 @@ if(!isset($_SESSION['username'])){
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
               <div class=" dropdown-header noti-title">
-                <h6 class="text-overflow m-0"><?php echo $_SESSION['id']; ?></h6>
+                <h6 class="text-overflow m-0"><?php echo $_SESSION['id_user']; ?></h6>
               </div>
               <a href="./examples/profile.html" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
@@ -216,8 +138,8 @@ if(!isset($_SESSION['username'])){
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Tagihan Saya</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "Jml Tagihan"?></span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Tagihan Pesanan Saya</h5>
+                      <span class="h2 font-weight-bold mb-0"><?php echo "Tahap Dev."?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -272,7 +194,12 @@ if(!isset($_SESSION['username'])){
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Top Up</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
+                      <span class="h2 font-weight-bold mb-0">
+                          <button class='btn btn-icon btn-success btn-card-1' type='button'>
+                            <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
+                            <span class='btn-inner--text'>Tambah</span>
+                          </button> 
+                      </span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -280,6 +207,10 @@ if(!isset($_SESSION['username'])){
                       </div>
                     </div>
                   </div>
+                  
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-wrap">Masukkan jumlah uang yang kamu inginkan, kemudian hubungi admin untuk konfirmasi.</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -288,8 +219,12 @@ if(!isset($_SESSION['username'])){
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Ajukan Barang</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Lihat Menu</h5>
+                      <span class="h2 font-weight-bold mb-0">49 Menu</span>
+                      <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
+                        <span class='btn-inner--icon'><i class='far fa-eye'></i></span>
+                        <span class='btn-inner--text'>Lihat</span>
+                      </button>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -297,10 +232,6 @@ if(!isset($_SESSION['username'])){
                       </div>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
                 </div>
               </div>
             </div>
