@@ -78,7 +78,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Selamat Datang Sahabat FinePay</h1>
+              <h1 class="text-white">Smart Canteen</h1>
               <p class="text-lead text-light text-uppercase">Silahkan Login</p>
             </div>
           </div>
