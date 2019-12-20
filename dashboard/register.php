@@ -79,6 +79,16 @@
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
               <h1 class="text-white">Selamat datang di Smart Canteen</h1>
+              <p>
+                  <?php 
+                      if(isset($_GET['pesan'])){
+                          if($_GET['pesan'] == "checked"){
+                              echo "<center><b>Harus dicentang</b><center>";
+                              header('Refresh: 3; URL=register.php');
+                          }
+                      }
+                  ?>
+              </p>
             </div>
           </div>
         </div>
@@ -98,13 +108,21 @@
               <div class="text-center text-muted mb-4">
                 
               </div>
-              <form>
+              <form action="./regist-proses.php" method="POST">
                   <div class="form-group">
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Name" type="text">
+                      <input class="form-control" placeholder="Name" type="text" name="nama">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Username" type="text" name="username">
                     </div>
                   </div>
                   <div class="form-group">
@@ -112,7 +130,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Email" type="email">
+                      <input class="form-control" placeholder="Email" type="email" name="email">
                     </div>
                   </div>
                   <div class="form-group">
@@ -120,19 +138,19 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Password" type="password">
+                      <input class="form-control" placeholder="Password" type="password" name="password">
                     </div>
                   </div>
                   <div class="row my-4">
                     <div class="col-12">
                       <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                        <input class="custom-control-input" id="customCheckRegister" type="checkbox" name="check" value="checked">
                         <label class="custom-control-label" for="customCheckRegister"><span>I agree with the <a href="#">Privacy Policy</a></span></label>
                       </div>
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary mt-4">Create account</button>
+                    <button type="submit" class="btn btn-primary mt-4" name="btn_register">Create account</button>
                   </div>
                 </form>
             </div>
