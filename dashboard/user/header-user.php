@@ -21,6 +21,7 @@ include('query-user.php');
   <link href="../assets/css/style.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link href="../assets/css/style.css"/>
 
   <!-- CSS untuk DataTable -->
   <link rel="stylesheet" type="text/css" href="../assets/datables/datatables.min.css"/>

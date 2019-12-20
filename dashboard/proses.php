@@ -24,7 +24,8 @@ if($password == '' AND $username == '') {
 	$cek_data = mysqli_num_rows($query_login);
 	if($cek_data > 0) {
 		session_start();
-		$data = mysqli_fetch_array($query_login);
+		$data = mysqli_fetch_assoc($query_login);
+		if($data['level']=="user"){
 			// cek jika user login sebagai user
 			$_SESSION['id_user'] =$data['id_user'];
 			$_SESSION['nama'] = $data['nama'];
@@ -33,9 +34,12 @@ if($password == '' AND $username == '') {
 			$_SESSION['jk'] = $data['jk'];
 			$_SESSION['alamat'] = $data['alamat'];
 			$_SESSION['telepon'] = $data['telepon'];
-			$_SESSION['level'] = $data['level'];
+			$_SESSION['level'] = "user";
 			// alihkan ke halaman login kembali
 			header("location: ./user");
+		} else if($data['level']=="admin"){
+
+		}
 	} else{
 		echo"<script language='javascript'> alert('Username atau password salah!');history.go(-1); </script>";
 	}
