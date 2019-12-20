@@ -9,7 +9,7 @@ require_once("./koneksi.php");
 */
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 
 
 if($password == '' AND $username == '') {

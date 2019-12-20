@@ -6,7 +6,7 @@ if(isset($_POST['btn_register'])){
     $nama = mysqli_real_escape_string($koneksi, trim($_POST['nama']));
     $username = mysqli_real_escape_string($koneksi, trim($_POST['username']));
     $email = mysqli_real_escape_string($koneksi, trim($_POST['email']));
-    $password = mysqli_real_escape_string($koneksi, trim($_POST['password']));
+    $password = mysqli_real_escape_string($koneksi, md5(trim($_POST['password'])));
 
     if ($_POST['check'] != 'checked'){
        header('location: ./register.php?pesan=checked');
