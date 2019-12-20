@@ -12,7 +12,6 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 
-
 if($password == '' AND $username == '') {
 	echo"<script language='javascript'> alert('Username dan password harus diisi!');history.go(-1); </script>";
 } else if ( $password=='') {
