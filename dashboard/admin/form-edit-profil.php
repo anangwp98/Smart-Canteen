@@ -52,8 +52,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" name="username" class="form-control form-control-alternative" value="<?php echo $_SESSION['username']; ?>" disabled>
-                        <input type="text" name="id" class="form-control form-control-alternative" value="<?php echo $_SESSION['id']; ?>" hidden>
+                        <input type="text" name="username" class="form-control form-control-alternative" value="<?php echo $_SESSION['id_user']; ?>" disabled>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -98,7 +97,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control datepicker" name="tglLahir"  placeholder="Select date" type="text" value="<?php echo $_SESSION['tglLahir']; ?>">
+                            <input class="form-control datepicker" name="tglLahir"  placeholder="Select date" type="text" value="<?php echo $_SESSION['tgl_lahir']; ?>">
                           </div>
                         </div>
                       </div>

@@ -1,9 +1,9 @@
 <?php 
 include('../koneksi.php');
-$id_barang = $_GET['id'];
-$query = "DELETE FROM barang WHERE id_barang='$id_barang'";
+$id_barang = $_GET['id_pedagang'];
+$query = "DELETE FROM pedagang WHERE id_pedagang='$id_barang'";
 if(mysqli_query($koneksi, $query)) {
-    header("location:./index.php");
+    header("location:./view-pedagang.php");
 } else {
     echo"<script language='javascript'> alert('Data Gagal Dihapus!');history.go(-1); </script>";
 }

@@ -7,108 +7,13 @@
                 <div class="col">
                   <h3 class="mb-0">Data User</h3>
                   <hr>
-                  <button type="button" class="col-lg-3 btn btn-block btn-white" data-toggle="modal" data-target="#modal-form"><i class="fas fa-user-plus"></i> Tambah User</button>
-                  <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-                    <div class="modal-dialog modal- modal-dialog-centered modal-xl" role="document">
-                      <div class="modal-content">
-                        <div class="modal-body p-0">
-                          <div class="card bg-secondary shadow border-0">
-                            <div class="card-header bg-transparent pb-0">
-                              <div class="text-muted text-center mt-2 mb-3"><small>Masukkan Data Diri User</small></div>
-                                <div class="card-body px-lg-5 py-lg-5">
-                                  <form action="./proses.php" method="POST">
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="far fa-user-circle"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="username" type="hidden" name="id">
-                                        <input class="form-control" placeholder="username" type="text" name="username">
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Nama Lengkap" type="text" name="nama">
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Password" type="password" name="password">
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-at"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Email" type="email" name="email">
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="dd/mm/YYYY" type="date" name="tglLahir">
-                                      </div>
-                                    </div>
-                                    <div class="custom-control custom-radio mb-3">
-                                      <input name="jenkel" class="custom-control-input" id="Laki" type="radio" value="L">
-                                      <label class="custom-control-label" for="Laki">Laki Laki</label>
-                                    </div>
-                                    <div class="custom-control custom-radio mb-3">
-                                      <input name="jenkel" class="custom-control-input" id="Perempuan" type="radio" value="P">
-                                      <label class="custom-control-label" for="Perempuan">Perempuan</label>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
-                                        </div>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat user" name="alamat"></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Nomor Telp" type="telp" name="telp">
-                                      </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                      <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="far fa-user-circle"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Level" type="text" name="level">
-                                      </div>
-                                    </div>
-                                    <div class="text-center">
-                                      <input type="submit" name="simpan_user" class="btn btn-primary my-4" value="Proses">
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="table-responsive">
 
             <?php
 
-            $data_admin = "SELECT * FROM users WHERE level='user'";
+            $data_admin = "SELECT * FROM user WHERE level='user'";
             $hasil_admin = mysqli_query($koneksi, $data_admin); 
 
             $total_record_admin = mysqli_num_rows($hasil_admin);
@@ -139,13 +44,13 @@
                   $showJK = 'Tidak Terdefinisikan';
                 }
                   echo "<tr>
-                    <th scope='row'>" . $row["username"]. "</th>
+                    <th scope='row'>" . $row["id_user"]. "</th>
                     <td>" . $row["nama"]."</td>
                     <td>".$row["email"]."</td>
                     <td>".$showJK."</td>
                     <td scope='row'>
-                      <button type='button' class='btn btn-outline-info' data-toggle='modal' data-target='#modal-notification". $row["id"] . "'>Info</button>
-                      <button type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#modal-hapus". $row["id"] . "'>Hapus</button>
+                      <button type='button' class='btn btn-outline-info' data-toggle='modal' data-target='#modal-notification". $row["id_user"] . "'>Info</button>
+                      <button type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#modal-hapus". $row["id_user"] . "'>Hapus</button>
                     </td>
                   </tr>"; ?>
                   
@@ -244,3 +149,4 @@
           </div>
         </div>
       </div>
+    </div>

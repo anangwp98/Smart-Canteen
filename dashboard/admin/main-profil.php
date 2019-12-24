@@ -43,7 +43,7 @@
                   <h3 class="mb-0">Akun Saya</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="edit-profil.php?id=<?php echo $_SESSION['id']; ?>" class="btn btn-sm btn-primary">Edit Profil Saya</a>
+                  <a href="edit-profil.php?id=<?php echo $_SESSION['id_user']; ?>" class="btn btn-sm btn-primary">Edit Profil Saya</a>
                 </div>
               </div>
             </div>
@@ -54,8 +54,8 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Username</label>
-                        <input class="form-control form-control-alternative" disabled value="<?php echo $_SESSION['username']; ?>">
+                        <label class="form-control-label" for="input-username">ID USER</label>
+                        <input class="form-control form-control-alternative" disabled value="<?php echo $_SESSION['id_user']; ?>">
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -97,7 +97,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Tanggal Lahir</label>
-                        <label class="form-control form-control-alternative"><?php echo $_SESSION['tglLahir']; ?></label>
+                        <label class="form-control form-control-alternative"><?php echo $_SESSION['tgl_lahir']; ?></label>
                       </div>
                     </div>
                   </div>

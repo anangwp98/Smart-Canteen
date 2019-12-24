@@ -48,7 +48,7 @@ include('./query-admin.php');
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">Halo, <?php echo $_SESSION['nama']; ?></h1>
             
-            <label class="alert alert-primary col">ID Kamu : <?php echo $_SESSION['id']; ?></label>
+            <label class="alert alert-primary col">ID Kamu : <?php echo $_SESSION['id_user']; ?></label>
           </div>
         </div>
       </div>

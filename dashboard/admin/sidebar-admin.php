@@ -1,5 +1,5 @@
       <a class="navbar-brand pt-0" href="../admin/index.php">
-        <img alt="Image placeholder" src="../assets/img/brand/logo_finepay.png">
+        <img alt="Image placeholder" src="../assets/img/brand/logo_smartcanteen_regular.png">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">

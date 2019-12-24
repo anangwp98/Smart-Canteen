@@ -1,5 +1,6 @@
 <?php
 include('../koneksi.php');
+session_start();
 if(isset($_POST['simpan_user'])) {
     $username           = $_POST['username'];
     $nama               = $_POST['nama'];
@@ -23,16 +24,20 @@ if(isset($_POST['simpan_user'])) {
     } else {
         echo"<script language='javascript'> alert('Data Gagal Disimpan!');history.go(-1); </script>";
     }
-} else if(isset($_POST['simpan_barang'])) {
-    $nama           = $_POST['nama'];
-    $harga          = $_POST['harga'];
-    
+} else if(isset($_POST['simpan_pedagang'])) {
+    $nama               = $_POST['nama'];
+    $password           = $_POST['password'];
+    $email              = $_POST['email'];
+    $jenkel             = $_POST['jenkel'];
+    $alamat             = $_POST['alamat'];
+    $telepon            = $_POST['telp'];
+    $id_admin           = $_SESSION['id_user'];
     $id_nama = str_replace(' ', '-', $nama);
     $id_increment = rand(); 
-    $id="BRG-".$id_increment.$id_nama;
-    $query="INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`) VALUES ('$id', '$nama', '$harga')";
+    $id="PDG-".$id_increment.$id_nama;
+    $query="INSERT INTO `pedagang` (`id_pedagang`, `nama`, `password`, `email`, `jk`, `telepon`, `alamat`, `id_admin`) VALUES ('$id', '$nama', '$password','$email','$jenkel','$telepon','$alamat','$id_admin')";
     if(mysqli_query($koneksi, $query)) {
-        header("location:./index.php");
+        header("location:./view-pedagang.php");
     } else {
         echo"<script language='javascript'> alert('Data Gagal Disimpan!');history.go(-1); </script>";
     }
