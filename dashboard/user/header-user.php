@@ -190,6 +190,52 @@ include('query-user.php');
                             </div>
                           </div>
                         </div>";
+                        } else {
+                          echo "
+                                <p class='mt-3 mb-0 text-muted text-sm'>                                      
+                                    <button class='btn btn-icon btn-info btn-card-1' type='button' data-toggle='modal' data-target='#modal-input-topup'>
+                                    <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
+
+                                    <span class='btn-inner--text'>Top Up</span>
+                                  </button>
+                                </p>
+                                <div class='modal fade' id='modal-input-topup' tabindex='-1' role='dialog' aria-labelledby='modal-input-topup' aria-hidden='true'>
+                                <div class='modal-dialog modal- modal-dialog-centered modal-xl' role='document'>
+                                  <div class='modal-content'>
+                                    <div class='modal-body p-0'>
+                                      <div class='card bg-secondary shadow border-0'>
+                                        <div class='card-header bg-transparent pb-0'>
+                                          <div class='text-muted text-center mt-2 mb-3'><small>Masukan jumlah top up anda!</small></div>
+                                            <div class='card-body px-lg-5 py-lg-5'>
+                                              <form action='./proses.php' method='POST'>
+                                                <div class='form-group mb-3'>
+                                                  <div class='input-group input-group-alternative'>
+                                                    <div class='input-group-prepend'>
+                                                      <span class='input-group-text'><i class='fas fa-archive'></i></span>
+                                                    </div>
+                                                    <input class='form-control' placeholder='id' type='hidden' name='id'>
+                                                    <input class='form-control' placeholder='Nominal' type='text' name='nominal'>
+                                                  </div>
+                                                  <br>
+                                                  <div class='input-group input-group-alternative'>
+                                                    <div class='input-group-prepend'>
+                                                      <span class='input-group-text'><i class='fas fa-archive'></i></span>
+                                                    </div>
+                                                    <input class='form-control' placeholder='Keterangan' type='text' name='keterangan'>
+                                                  </div>
+                                                </div>
+                                                <div class='text-center'>
+                                                  <input type='submit' name='input_topup' class='btn btn-primary my-4' value='Proses'>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                ";
                         }
                       ?>
                     </div>
