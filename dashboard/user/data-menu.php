@@ -9,7 +9,6 @@
                 <div class="col">
                   <h3 class="mb-0">Menu</h3>
                   <hr>
-                  <label for="total_pesan" class="h4 mb-0 text-black text-uppercase d-none d-lg-inline-block teks-total-pesan">Total : Rp. 0,- </label>
                 </div>
               </div>
               <div class="table-responsive">

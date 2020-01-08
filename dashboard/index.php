@@ -20,10 +20,10 @@
 
 <body class="">
 <?php
-include('./koneksi.php');
+include('koneksi.php');
 session_start();
 
-if(isset($_SESSION['id_user'])) {
+if(isset($_SESSION['username'])) {
 ?>
     <!-- End Navbar -->
     <!-- Header -->
