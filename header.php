@@ -1,6 +1,6 @@
 
 <?php 
-include('./dashboard/koneksi.php');
+include('query.php');
 session_start();
 $nameFavicon = false;
 $login = false;
@@ -33,12 +33,15 @@ if(isset($_SESSION['username'])) {
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
   <link href="./assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  
   <link href="./assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  
+  <link href="./assets/css/style.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="./assets/css/argon.css?v=1.1.0" rel="stylesheet">
 </head>
 <body>
-  <header class="header-global">
+  <header class="header-global header-z-index">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="./index.php">
@@ -73,7 +76,7 @@ if(isset($_SESSION['username'])) {
                 <div class="dropdown-menu-inner">
                   <a href="#" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                      <i class="ni ni-spaceship"></i>
+                    <i class="fa fa-credit-card"></i>
                     </div>
                     <div class="media-body ml-3">
                       <h6 class="heading text-primary mb-md-1">Pembayaran Tagihan</h6>
@@ -82,7 +85,7 @@ if(isset($_SESSION['username'])) {
                   </a>
                   <a href="#" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                      <i class="ni ni-palette"></i>
+                    <i class="fa fa-upload"></i>
                     </div>
                     <div class="media-body ml-3">
                       <h6 class="heading text-primary mb-md-1">Pengajuan Cicilan</h6>
@@ -91,7 +94,7 @@ if(isset($_SESSION['username'])) {
                   </a>
                   <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                      <i class="ni ni-ui-04"></i>
+                    <i class="fa fa-user-md"></i>
                     </div>
                     <div class="media-body ml-3">
                       <h5 class="heading text-warning mb-md-1">Fine Jobs</h5>
