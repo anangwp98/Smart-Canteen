@@ -7,15 +7,17 @@
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Menu Kamu</h3>
+                  <h3 class="mb-0">Menu</h3>
                   <hr>
+                  <label for="total_pesan" class="h4 mb-0 text-black text-uppercase d-none d-lg-inline-block teks-total-pesan">Total : Rp. 0,- </label>
                 </div>
               </div>
               <div class="table-responsive">
 
             <?php
 
-            $data_menu = "SELECT * FROM menu WHERE id_pedagang='" . $_SESSION['id_pedagang'] . "'";
+            $data_menu = "SELECT * FROM menu 
+            JOIN pedagang ON pedagang.id_pedagang = menu.id_pedagang";
             $hasil_menu = mysqli_query($koneksi, $data_menu); 
 
             $total_record_menu = mysqli_num_rows($hasil_menu);
@@ -27,7 +29,8 @@
                     <th scope="col"></th>
                     <th scope="col">Menu</th>
                     <th scope="col">Harga</th>
-                    <th scope="col">Pedagangn</th>
+                    <th scope="col">Pedagang</th>
+                    <th scope="col">Action</th>
                     
                   </tr>
                 </thead>
@@ -40,7 +43,10 @@
                     <th scope='row'>" . "GAMBAR MENU" . "</th>
                     <td>" . $row["name_menu"]."</td>
                     <td>".$row["harga"]."</td>
-                    <td>".$row["id_pedagang"]."</td>
+                    <td>".$row["nama"]."</td>
+                    <td scope='row'>
+                      <button type='button' class='btn btn-outline-info' data-toggle='modal' data-target='#modal-notification". $row["id_menu"] . "'>Pilih</button>
+                    </td>
                   </tr>"; ?>
                   
                 <!--
@@ -48,6 +54,7 @@
                         SCRIPT UNTUK MENAMPILKAN MODAL VIEW
                 ======================================================================================
                 -->
+                <form action="input-pesanan.php" method="post">
                   <div class="modal fade" id="modal-notification<?php echo $row["id_menu"]; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
                     <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
                       <div class="modal-content">    
@@ -65,15 +72,18 @@
                             </div>
                           </div>
                           <div class="modal-footer">
+                            <input class="form-control" type="hidden" name="harga" value="<?php echo $row['harga'] ?>">
+                            <input class="form-control" type="hidden" name="id_menu" value="<?php echo $row['id_menu'] ?>">
                             <input class="form-control" placeholder="Qty" type="text" name="jml_pesan">
-                            <a href="input-pesanan.php?id=<?php echo $row['id_menu']; ?>"><button type="button" class="btn btn-white">Masukkan Pesanan Saya</button></a>
-                            <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button> 
+                            <button type="submit" class="btn btn-white" name="simpan_pesanan">Masukkan Pesanan Saya</button>
+                            <button type="button" class="btn btn-link  ml-auto"  data-dismiss="modal">Close</button> 
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                </form>
                 <!--
                 ======================================================================================
                         SCRIPT AKHIR MENAMPILKAN MODAL

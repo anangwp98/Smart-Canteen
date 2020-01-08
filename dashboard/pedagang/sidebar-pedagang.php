@@ -4,8 +4,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">
-                <i class="fas fa-cart-arrow-down"></i> Pesanan Saya
+            <a class="nav-link" href="./view-request-pesanan.php">
+                <i class="fas fa-cart-arrow-down"></i> Request Pesanan
             </a>
           </li>
         </ul>

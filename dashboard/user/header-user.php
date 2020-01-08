@@ -140,11 +140,8 @@ include('query-user.php');
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Tagihan Pesanan Saya</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "Rp. 12500,-"?></span>
-                        <button class='btn btn-icon btn-warning btn-card-1' type='button'>
-                          <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
-                          <span class='btn-inner--text'>Bayar</span>
-                        </button>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $status_pesanan?></span>
+                        
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -165,14 +162,34 @@ include('query-user.php');
                       <?php
                         if ($showCreateDompet == true) {
                             echo "<br>                                               
-                                <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
-                                <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
+                            <p class='mt-3 mb-0 text-muted text-sm'>                                      
+                            <button class='btn btn-icon btn-info btn-card-1' type='button' data-toggle='modal' data-target='#modal-input-topup'>
+                            <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
 
-                                <span class='btn-inner--text'>Tambah</span>
-
-                                </button>";
-                        } else {
-                            echo "";
+                            <span class='btn-inner--text'>Buka</span>
+                          </button>
+                        </p>
+                        <div class='modal fade' id='modal-input-topup' tabindex='-1' role='dialog' aria-labelledby='modal-input-topup' aria-hidden='true'>
+                        <div class='modal-dialog modal- modal-dialog-centered modal-xl' role='document'>
+                          <div class='modal-content'>
+                            <div class='modal-body p-0'>
+                              <div class='card bg-secondary shadow border-0'>
+                                <div class='card-header bg-transparent pb-0'>
+                                  <div class='text-muted text-center mt-2 mb-3'><small>Yakin anda membuat dompet?</small></div>
+                                    <div class='card-body px-lg-5 py-lg-5'>
+                                      <form action='./proses.php' method='POST'>
+                                        <div class='text-center'>
+                                          <input type='hidden' name='id' class='btn btn-primary my-4'>
+                                          <input type='submit' name='create_dompet' class='btn btn-primary my-4' value='Ya'>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>";
                         }
                       ?>
                     </div>
@@ -190,38 +207,14 @@ include('query-user.php');
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Top Up</h5>
-                      
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-wrap">Masukkan jumlah uang yang kamu inginkan, kemudian hubungi admin untuk konfirmasi.</span>
-                  </p>
-                      <span class="h2 font-weight-bold mb-0">
-                          <button class='btn btn-icon btn-success btn-card-1' type='button'>
-                            <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
-                            <span class='btn-inner--text'>Tambah</span>
-                          </button> 
-                      </span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                      <i class="fas fa-money-check-alt"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Lihat Menu</h5>
-                      <span class="h2 font-weight-bold mb-0">49 Menu</span>
+                      <span class="h2 font-weight-bold mb-0"><p><strong><?php echo $jml_menu ?></strong> Menu di sini</p></span>
+                      <a href="./view-semua-menu.php">
                       <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
                         <span class='btn-inner--icon'><i class='far fa-eye'></i></span>
                         <span class='btn-inner--text'>Lihat</span>
                       </button>
+                      </a>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -236,3 +229,4 @@ include('query-user.php');
         </div>
       </div>
     </div>
+    

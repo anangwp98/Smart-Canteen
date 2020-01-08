@@ -23,7 +23,7 @@
                                           <span class="input-group-text"><i class="fas fa-archive"></i></span>
                                         </div>
                                         <input class="form-control" placeholder="username" type="hidden" name="id">
-                                        <input class="form-control" placeholder="Nama Barang" type="text" name="nama">
+                                        <input class="form-control" placeholder="Nama Pedagang" type="text" name="nama">
                                       </div>
                                     </div>
                                     <div class="form-group mb-3">

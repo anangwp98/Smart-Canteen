@@ -67,7 +67,7 @@
                       <h5 class="card-title text-uppercase text-muted mb-0">Jumlah User</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $hasil_jml_user; ?></span>
                       <?php
-                        if ($view_user == true) {
+                        if ($view_user == false) {
                             echo "<br>   
                               <a href='./view-user.php'>                                                     
                                 <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
