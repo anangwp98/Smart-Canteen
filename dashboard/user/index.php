@@ -4,8 +4,8 @@ if($_SESSION['level'] == 'admin') {
     header("location:../admin/");
 } else if($_SESSION['level'] == 'user') {
     include('header-user.php');
-    include('view-menu.php');
-    include('view-topup.php');
+    include('data-menu.php');
+    include('data-topup.php');
     include('footer-user.php');
 } else {
     session_destroy();

@@ -58,6 +58,10 @@
           <a class=" nav-link " href=" ../../index.php"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
+          <li class="nav-item  class=" active>
+          <a class=" nav-link " href=" ./history.php"> <i class="fas fa-history"></i></i> History
+            </a>
+          </li>
         </ul>
         <!-- Divider -->
         <hr class="my-3">
