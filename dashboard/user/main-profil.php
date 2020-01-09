@@ -20,6 +20,21 @@
                       }
                     echo "</div>";
                   }
+
+                  $sqlInformasiDIri = "SELECT * FROM personal_identity WHERE id_user='$id_user_user'";
+                  $resulInformasiDiri = mysqli_query($koneksi, $sqlInformasiDIri);
+                  $view_infoDIri = mysqli_num_rows($resulInformasiDiri);
+                  if ( $view_infoDIri > 0) {
+                     while ($rowInfoDiri = mysqli_fetch_assoc($resulInformasiDiri)) {
+                      
+                        $id_informasi_Diri = "CEK ADMIN";
+                        // = $rowInfoDiri['id_personal_identity'];
+                          $ktp = $rowInfoDiri['ktp'];
+                          $ktm = $rowInfoDiri['ktm'];  
+                    }
+                  } else {
+                    echo "BELUM ADA FOTO";
+                  }
                   ?>
                 </div>
               </div>
@@ -126,6 +141,17 @@
                   <div class="form-group">
                     <textarea rows="4" class="form-control form-control-alternative" disabled><?php echo $_SESSION['alamat']; ?></textarea>
                   </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">DOKUMEN</h6>
+                <div class="pl-lg-4">
+                    <img class="card-img-top identitas" src="../assets/img/datadiri/<?php echo $ktp ?>">
+                    <h5 class="card-title">KTP</h5>
+                </div>
+                <div class="pl-lg-4">
+                    <img class="card-img-top identitas" src="../assets/img/datadiri/<?php echo $ktm ?>" >
+                    <h5 class="card-title">KTM</h5>
                 </div>
               </form>
             </div>

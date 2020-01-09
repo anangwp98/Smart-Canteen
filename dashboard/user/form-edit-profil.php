@@ -222,6 +222,7 @@
                 
                 <input type="submit" value="Simpan Document" name="simpan_ktp" class="btn btn-primary">
                 </form>
+                
                 <form action="proses-update.php" method="post" enctype="multipart/form-data">
                 <hr class="my-4" />
                 <!-- Description -->
@@ -240,6 +241,7 @@
                 <input type="submit" value="Simpan Document" name="simpan_ktm" class="btn btn-primary">
                 <input TYPE="button" VALUE="Batal" onClick="history.go(-1);" class="btn btn-warning">
                 </form>
+                
             </div>
           </div>
         </div>
