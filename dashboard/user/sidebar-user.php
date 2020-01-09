@@ -8,6 +8,11 @@
                 <i class="fas fa-cart-arrow-down"></i> Pesanan Saya
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link " href="./view-pesanan-selesai.php">
+            <i class="fas fa-check-double"></i> Pesanan Selesai
+            </a>
+          </li>
         </ul>
         <!-- Divider -->
         <hr class="my-3">

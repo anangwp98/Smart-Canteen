@@ -100,21 +100,9 @@ include('query-user.php');
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0"><?php echo $_SESSION['id_user']; ?></h6>
               </div>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-single-02"></i>
+              <a href="./view-profil.php" class="dropdown-item">
+              <i class="ni ni-single-02"></i>
                 <span>My profile</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Settings</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Activity</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
               <a href="../logout.php" class="dropdown-item">
