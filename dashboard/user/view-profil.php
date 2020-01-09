@@ -1,11 +1,13 @@
-
 <?php
 session_start();
-if(isset($_SESSION['id_user'])) {
-  include('header-user.php'); 
-  include('main-profil.php');
-  include('footer-user.php');
+// cek apakah yang mengakses halaman ini sudah login
+if(!isset($_SESSION['id_user'])){
+	header("location:./../index.php");
+} else if($_SESSION['level'] == 'admin') {
+    header("location:../admin/");
 } else {
-  header("location:../../dashboard/");
+    include('header-user.php');
+    include('main-profil.php');
+    include('footer-user.php');
 }
 ?>

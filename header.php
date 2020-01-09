@@ -4,8 +4,8 @@ include('query.php');
 session_start();
 $nameFavicon = false;
 $login = false;
-if(isset($_SESSION['username'])) {
-    $title = $_SESSION['username'];
+if(isset($_SESSION['id_user'])) {
+    $title = $_SESSION['nama'];
     $nameFavicon = true;
     $login = true;
 }
