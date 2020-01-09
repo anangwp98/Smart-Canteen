@@ -5,6 +5,7 @@ if($_SESSION['level'] == 'admin') {
 } else if($_SESSION['level'] == 'user') {
     include('header-user.php');
     include('view-menu.php');
+    include('view-topup.php');
     include('footer-user.php');
 } else {
     session_destroy();
