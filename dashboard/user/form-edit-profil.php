@@ -7,14 +7,14 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                 <?php
-		            	$id_user_user = $_SESSION['id'];
+		            	$id_user_user = $_SESSION['id_user'];
                   $sqlImg = "SELECT * FROM profil_img WHERE id_user='$id_user_user'";
                   $resultImg = mysqli_query($koneksi, $sqlImg);
                  
                   while ($rowimg = mysqli_fetch_assoc($resultImg)) {
                     echo "<div>";
                       if ( $rowimg['status'] > 0) {
-                        echo "<img src='../assets/img/theme/".$rowimg['status']."' class='rounded-circle'>";
+                        echo "<img src='../assets/img/profil-user/".$rowimg['status']."' class='rounded-circle'>";
                       } else {
                         echo "CRASH DATA!";
                       }
@@ -82,7 +82,7 @@
                 if($cek_gambar == 1) {
                   ?> 
                   <input type="hidden" name="cek_gambar" value="1">
-                  <input type="hidden" name="name_gambar_profil" value="<?php echo $gambar ?>">
+                  <input type="text" name="nm_g" value="<?php echo $gambar ?>" hidden>
                 <?php } else { ?>
                   <input type="hidden" name="cek_gambar" value="0">
                 <?php 
@@ -115,7 +115,7 @@
               </div>
             </div>
             <div class="card-body">
-            <!-- 
+              <!-- 
                 ================================================================================================
                                             FORM
                 =================================================================================================
@@ -127,8 +127,8 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" name="username" class="form-control form-control-alternative" value="<?php echo $_SESSION['id_user']; ?>" disabled>
-                        <input type="text" name="id" class="form-control form-control-alternative" value="<?php echo $_SESSION['id']; ?>" hidden>
+                        <input type="text" class="form-control form-control-alternative" value="<?php echo $_SESSION['id_user']; ?>" disabled>
+
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -137,6 +137,7 @@
                         <input type="email" name="email" class="form-control form-control-alternative" value="<?php echo $_SESSION['email']; ?>">
                       </div>
                     </div>
+                    
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
@@ -156,6 +157,12 @@
                           <input type="radio" name="jenkel" class="custom-control-input" id="P" value="P" <?php if($_SESSION['jk']=="P"){ echo "checked";}?>/>
                           <label class="custom-control-label" for="P">Perempuan</label>
                         </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label">Telepon</label>
+                        <input type="text" name="telepon" class="form-control form-control-alternative" value="<?php echo $_SESSION['telepon']; ?>">
                       </div>
                     </div>
                   </div>

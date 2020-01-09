@@ -7,7 +7,19 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <?php
-		            	$id_user_user = $_SESSION['id_user'];
+                  $id_user_user = $_SESSION['id_user'];
+                  $sqlImg = "SELECT * FROM profil_img WHERE id_user='$id_user_user'";
+                  $resultImg = mysqli_query($koneksi, $sqlImg);
+                 
+                  while ($rowimg = mysqli_fetch_assoc($resultImg)) {
+                    echo "<div>";
+                      if ( $rowimg['status'] > 0) {
+                        echo "<img src='../assets/img/profil-user/".$rowimg['status']."' class='rounded-circle'>";
+                      } else {
+                        echo "BELUM ADA FOTO";
+                      }
+                    echo "</div>";
+                  }
                   ?>
                 </div>
               </div>
@@ -93,6 +105,12 @@
                 <!-- Address -->
                 <div class="pl-lg-4">
                   <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-address">Telepon</label>
+                        <label class="form-control form-control-alternative"><?php echo $_SESSION['telepon']; ?></label>
+                      </div>
+                    </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Tanggal Lahir</label>
