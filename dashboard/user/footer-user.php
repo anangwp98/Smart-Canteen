@@ -39,6 +39,8 @@
 
   <!-- JS Data Table -->
   <script type="text/javascript" src="../assets/datables/datatables.min.js"></script>
+  <script src="../../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="../../assets/js/argon.js?v=1.1.0"></script>
   <script>
     window.TrackJS &&
       TrackJS.install({
@@ -47,8 +49,17 @@
       });
 
     $(document).ready(function(){
-        $('#tabel-data').DataTable({
-          "lengthMenu": [ [5, 10, -1], [5, 10, "Semua"] ],
+        $('#tabel-data-user').DataTable({
+          "lengthMenu": [ [3, 4], [3, 4] ],
+          "pagingType": "numbers"
+        });
+        $('#tabel-data-barang').DataTable({
+          "lengthMenu": [ [3, 4], [3, 4] ],
+          "pagingType": "numbers"
+        });
+        
+        $('#tabel-data-website').DataTable({
+          "lengthMenu": [ [1], [1] ],
           "pagingType": "numbers"
         });
     });

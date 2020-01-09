@@ -115,6 +115,11 @@
               </div>
             </div>
             <div class="card-body">
+            <!-- 
+                ================================================================================================
+                                            FORM
+                =================================================================================================
+               -->
               <form action="proses-update.php" method="POST" enctype="multipart/form-data">
                 <h6 class="heading-small text-muted mb-4">Informasi Akun</h6>
                 <div class="pl-lg-4">
@@ -168,7 +173,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control datepicker" name="tglLahir"  placeholder="Select date" type="text" value="<?php echo $_SESSION['tgl_lahir']; ?>">
+                            <input class="form-control datepicker" name="tglLahir" placeholder="Select date" type="text" value="<?php echo $_SESSION['tgl_lahir']; ?>">
                           </div>
                         </div>
                       </div>
@@ -186,6 +191,13 @@
                 
                 <input type="submit" value="Simpan Data Diri" name="update" class="btn btn-primary">
               </form>
+
+
+              <!-- 
+                ================================================================================================
+                                            FORM
+                =================================================================================================
+               -->
               <form action="proses-update.php" method="post" enctype="multipart/form-data">
               <hr class="my-4" />
                 <!-- Description -->
