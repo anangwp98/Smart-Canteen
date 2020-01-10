@@ -31,14 +31,19 @@ if(!isset($_SESSION['id_user'])){
 
     if($cek_data_total_pesanan == NULL) {
         $status_pesanan = "Belum Memiliki Pesanan Aktif";
+        $bayar = false;
     } else if ($cek_data_total_pesanan > 0){
         $mataUang = "Rp. ";
         $akhirMataUang = ",-";
         $status_pesanan = $mataUang.$jml_total_pesanan['total_pesanan'].$akhirMataUang;
+        $bayar = true;
+        $jml_total_pesanan1 = (int)$jml_total_pesanan['total_pesanan'];
     } else if ($cek_data_total_pesanan == 0) {
         $status_pesanan = '0';
+        $bayar = false;
     } else {
         echo "Gagal mendapatkan data";
+        $bayar = false;
     }
 
     $sql_view_total_menu = "SELECT COUNT(*) as jml_menu FROM menu";

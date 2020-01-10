@@ -160,7 +160,21 @@ include('query-user.php');
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Tagihan Pesanan Saya</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $status_pesanan?></span>
-                        
+                        <?php
+
+                        if($jml_total_pesanan['total_pesanan'] > 0 ) {
+                          echo "
+                          <form action='./proses.php' method='POST'>
+                          <input type='text' value='$jml_total_pesanan1' name='total_bayar' hidden>
+                          <button class='btn btn-icon btn-info btn-card-1' type='sumbit' name='bayar_tagihan'>
+                          <span class='btn-inner--icon'><i class='fas fa-money-bill-wave'></i></span>
+
+                          <span class='btn-inner--text'>Bayar</span>
+                          </button>
+                          </form>";
+                        }
+
+                        ?>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">

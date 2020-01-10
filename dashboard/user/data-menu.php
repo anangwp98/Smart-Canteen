@@ -39,7 +39,7 @@
             if (($total_record_menu) > 0) {
               while($row = mysqli_fetch_assoc($hasil_menu)) {
                   echo "<tr>
-                    <th scope='row'>" . "GAMBAR MENU" . "</th>
+                    <th scope='row'>" . "<img src='$row[file]' style='width: 200px'>" . "</th>
                     <td>" . $row["name_menu"]."</td>
                     <td>".$row["harga"]."</td>
                     <td>".$row["nama"]."</td>

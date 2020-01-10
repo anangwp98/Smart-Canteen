@@ -8,7 +8,51 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h3 class="mb-0">Menu Kamu</h3>
+                  <button type="button" class="col-lg-3 btn btn-block btn-white" data-toggle="modal" data-target="#modal-input-menu"><i class="fas fa-archive"></i> Tambah Pedagang</button>
                   <hr>
+                  <div class="modal fade" id="modal-input-menu" tabindex="-1" role="dialog" aria-labelledby="modal-input-menu" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-xl" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body p-0">
+                          <div class="card bg-secondary shadow border-0">
+                            <div class="card-header bg-transparent pb-0">
+                              <div class="text-muted text-center mt-2 mb-3"><small>Masukkan Data Menu</small></div>
+                                <div class="card-body px-lg-5 py-lg-5">
+                                  <form action="./proses-topup.php" method="POST"  enctype="multipart/form-data">
+                                    <div class="form-group mb-3">
+                                      <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fas fa-archive"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Nama Menu" type="text" name="nama">
+                                      </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                      <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Harga" type="text" name="harga">
+                                      </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                      <div class="input-group input-group-alternative">
+                                      
+                                        <input class="form-control" type="file" name="gmbr">
+                                      </div>
+                                    </div>
+                                    <div class="text-center">
+                                      <input type="submit" name="simpan_menu" class="btn btn-primary my-4" value="Proses">
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="table-responsive">
@@ -37,12 +81,11 @@
             if (($total_record_menu) > 0) {
               while($row = mysqli_fetch_assoc($hasil_menu)) {
                   echo "<tr>
-                    <th scope='row'>" . "GAMBAR MENU" . "</th>
+                    <th scope='row'>" . "<img src='$row[file]' style='width: 200px'>" . "</th>
                     <td>" . $row["name_menu"]."</td>
                     <td>".$row["harga"]."</td>
                     <td>".$row["id_pedagang"]."</td>
                     <td>
-                    <button type='button' class='btn btn-outline-info' data-toggle='modal' data-target='#modal-notification". $row["id_menu"] . "'>Terima</button>
                     <button type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#modal-hapus". $row["id_menu"] . "'>Hapus</button>
                     
                     </td>
@@ -130,4 +173,3 @@
           </div>
         </div>
       </div>
-    </div>
