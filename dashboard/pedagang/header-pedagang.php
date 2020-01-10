@@ -221,11 +221,17 @@ include('./query-pedagang.php');
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Lihat Menu Saya</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $jml_menu ?></span>
+                      <span class="h2 font-weight-bold mb-0">
+                      <?php echo $jml_menu ?>
+                      </span>
+                      
+                      <a href="view-menu.php">
                       <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
                         <span class='btn-inner--icon'><i class='far fa-eye'></i></span>
                         <span class='btn-inner--text'>Lihat</span>
                       </button> 
+                      
+                      </a>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
