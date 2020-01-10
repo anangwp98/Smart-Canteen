@@ -6,15 +6,22 @@
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
-                  <a href="#">
-                    <img src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                  </a>
+                <?php
+		            	$id_user_user = $_SESSION['id_user'];
+                  $sqlImg = "SELECT * FROM profil_img WHERE id_user='$id_user_user'";
+                  $resultImg = mysqli_query($koneksi, $sqlImg);
+                 
+                  while ($rowimg = mysqli_fetch_assoc($resultImg)) {
+                    echo "<div>";
+                      if ( $rowimg['status'] > 0) {
+                        echo "<img src='../assets/img/profil-user/".$rowimg['status']."' class='rounded-circle'>";
+                      } else {
+                        echo "BELUM ADA FOTO";
+                      }
+                    echo "</div>";
+                  }
+?>
                 </div>
-              </div>
-            </div>
-            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-sm btn-info mr-4">Edit Foto Profil</a>
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">

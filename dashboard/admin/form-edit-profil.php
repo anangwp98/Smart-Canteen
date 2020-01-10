@@ -6,15 +6,39 @@
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
-                  <a href="#">
-                    <img src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                  </a>
+                <?php
+		            	$id_user_admin = $_SESSION['id_user'];
+                  $sqlImg = "SELECT * FROM profil_img WHERE id_user='$id_user_admin'";
+                  $resultImg = mysqli_query($koneksi, $sqlImg);
+                 
+                  while ($rowimg = mysqli_fetch_assoc($resultImg)) {
+                    echo "<div>";
+                      if ( $rowimg['status'] > 0) {
+                        echo "<img src='../assets/img/profil-user/".$rowimg['status']."' class='rounded-circle'>";
+                      } else {
+                        echo "CRASH DATA!";
+                      }
+                    echo "</div>";
+                  }
+
+                  $query_cek_gambar = "SELECT * FROM `profil_img` WHERE id_user='$id_user_admin'";
+                  $sql_cek_gambar = mysqli_query($koneksi, $query_cek_gambar);
+                  $resultCekGambar = mysqli_num_rows($sql_cek_gambar);
+
+                  if (($resultCekGambar) > 0) {
+                      $cek_gambar = 1;
+                  } else {
+                      $cek_gambar = 0;
+                  }
+
+                  if ($resultCekGambar > 0) {
+                  
+                    while($gmbr = mysqli_fetch_assoc($sql_cek_gambar)) {
+                      $gambar = $gmbr['status'];
+                    }
+                  }
+                  ?>
                 </div>
-              </div>
-            </div>
-            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-sm btn-info mr-4">Edit Foto Profil</a>
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
@@ -31,6 +55,32 @@
                 <div class="h5 font-weight-300 capitalize-css">
                   <i class="ni location_pin mr-2"></i><?php echo $_SESSION['level']; ?>
                 </div>
+                <form action="upload-img.php" method="post" enctype="multipart/form-data">
+              <?php
+                if($cek_gambar == 1) {
+                  ?> 
+                  <input type="hidden" name="cek_gambar" value="1">
+                  <input type="hidden" name="name_gambar_profil" value="<?php echo $gambar ?>">
+                  
+                <?php } else { ?>
+                  
+                  <input type="hidden" name="cek_gambar" value="0">
+                <?php 
+                  $cek_gambar = false;
+                }
+              ?>
+                <div class="row">
+                  <div class="form-group col-xl-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                      <input type="file" name="profilImg" class="form-control">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name='submit-img'>Upload</button>
+              </form>
               </div>
             </div>
           </div>

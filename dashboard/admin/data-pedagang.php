@@ -5,7 +5,7 @@
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Data Barang</h3>
+                  <h3 class="mb-0">Data Pedagang</h3>
                   <hr>
                   <button type="button" class="col-lg-3 btn btn-block btn-white" data-toggle="modal" data-target="#modal-input-barang"><i class="fas fa-archive"></i> Tambah Pedagang</button>
                   <div class="modal fade" id="modal-input-barang" tabindex="-1" role="dialog" aria-labelledby="modal-input-barang" aria-hidden="true">
