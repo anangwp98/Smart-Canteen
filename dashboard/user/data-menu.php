@@ -53,7 +53,7 @@
                         SCRIPT UNTUK MENAMPILKAN MODAL VIEW
                 ======================================================================================
                 -->
-                <form action="input-pesanan.php" method="post">
+                <form action="./input-pesanan.php" method="POST">
                   <div class="modal fade" id="modal-notification<?php echo $row["id_menu"]; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
                     <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
                       <div class="modal-content">    
@@ -74,15 +74,15 @@
                             <input class="form-control" type="hidden" name="harga" value="<?php echo $row['harga'] ?>">
                             <input class="form-control" type="hidden" name="id_menu" value="<?php echo $row['id_menu'] ?>">
                             <input class="form-control" placeholder="Qty" type="text" name="jml_pesan">
-                            <button type="submit" class="btn btn-white" name="simpan_pesanan">Masukkan Pesanan Saya</button>
+                            <input type='submit' name='input_pesanan' class='btn btn-primary my-4' value='Proses'>
                             <button type="button" class="btn btn-link  ml-auto"  data-dismiss="modal">Close</button> 
                           </div>
+                        </form>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                </form>
                 <!--
                 ======================================================================================
                         SCRIPT AKHIR MENAMPILKAN MODAL
