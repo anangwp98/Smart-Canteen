@@ -177,13 +177,12 @@ include('./query-pedagang.php');
                             <div class="card-header bg-transparent pb-0">
                               <div class="text-muted text-center mt-2 mb-3"><small>Masukkan Data User</small></div>
                                 <div class="card-body px-lg-5 py-lg-5">
-                                  <form action="./proses.php" method="POST">
+                                  <form action="./proses-topup.php" method="POST">
                                     <div class="form-group mb-3">
                                       <div class="input-group input-group-alternative">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-archive"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="username" type="hidden" name="id">
                                         <input class="form-control" placeholder="ID User" type="text" name="id_user">
                                       </div>
                                     </div>
@@ -196,7 +195,7 @@ include('./query-pedagang.php');
                                       </div>
                                     </div>
                                     <div class="text-center">
-                                      <input type="submit" name="simpan_barang" class="btn btn-primary my-4" value="Proses">
+                                      <input type="submit" name="simpan_topup" class="btn btn-primary my-4" value="Proses">
                                     </div>
                                   </div>
                                 </form>

@@ -7,7 +7,7 @@ if(isset($_SESSION['id_pedagang'])){
         header("location:../user/");
     } else if($_SESSION['level'] == 'pedagang') {
         include('header-pedagang.php');
-        include('view-menu.php');
+        include('data-menu.php');
         include('footer-pedagang.php');
     } else {
         session_destroy();
