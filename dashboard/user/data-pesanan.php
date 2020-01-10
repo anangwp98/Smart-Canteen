@@ -19,7 +19,7 @@
             JOIN menu ON pemasanan.id_menu = menu.id_menu
             JOIN pedagang ON pedagang.id_pedagang = menu.id_pedagang
             JOIN user ON pemasanan.id_user = user.id_user
-            WHERE user.id_user='$id_user'";
+            WHERE user.id_user='$id_user' AND pemasanan.status=''";
             $hasil_data_user_pesanan = mysqli_query($koneksi, $data_user_pesanan); 
 
             $total_record_data_user_pesanan = mysqli_num_rows($hasil_data_user_pesanan);

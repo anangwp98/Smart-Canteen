@@ -23,7 +23,7 @@ if(!isset($_SESSION['id_user'])){
         echo "Gagal mendapatkan data";
     }
 
-    $sql_view_total_pesanan = "SELECT SUM(total_bayar) as 'total_pesanan' FROM pemasanan WHERE id_user='$_SESSION[id_user]'";
+    $sql_view_total_pesanan = "SELECT SUM(total_bayar) as 'total_pesanan', status FROM pemasanan WHERE id_user='$_SESSION[id_user]' AND status=''";
     $query_view_total_pesanan= mysqli_query($koneksi, $sql_view_total_pesanan );
     $jml_total_pesanan = mysqli_fetch_array($query_view_total_pesanan);
     

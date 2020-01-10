@@ -33,7 +33,6 @@
                     <th scope="col">Menu</th>
                     <th scope="col">Jumlah</th>
                     <th scope="col">Total Bayar</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,42 +46,8 @@
                     <td>".$row1["name_menu"]."</td>
                     <td>".$row1["jml_pesan"]."</td>
                     <td> Rp. ".$row1["total_bayar"].",- </td>
-                    <td scope='row'>
-                     <button type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#modal-hapus". $row1["no_invoce"] . "'>Hapus</button>
-                    </td>
+                    
                   </tr>"; ?>
-                  <!-- 
-                ======================================================================================
-                        SCRIPT UNTUK MENAMPILKAN MODAL HAPUS
-                ======================================================================================
-                -->
-                <div class="modal fade" id="modal-hapus<?php echo $row1["no_invoce"]; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-1-hapus" aria-hidden="true">
-                  <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-                    <div class="modal-content bg-gradient-danger">
-                      <div class="modal-header">
-                        <h2 class="modal-title" id="modal-1-hapus">HAPUS - <?php echo $row1["no_invoce"] ?></h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="py-3 text-center">
-                          <h3>Yakin menghapus pesanan : </h3><p><?php echo $row1["name_menu"] ?></p><br />
-                        </div>    
-                      </div>
-                      <div class="modal-footer">
-                      <a href="./hapus-pesanan.php?id=<?php echo $row1['no_invoce']; ?>"><button type="button" class="btn btn-white">HAPUS</button></a>
-                        <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Batal</button> 
-                      </div> 
-                    </div>
-                  </div>
-                </div>
-                <!--
-                ======================================================================================
-                        SCRIPT AKHIR MENAMPILKAN MODAL
-                ======================================================================================
-                -->
-                
                   
         <?php };
             } else {

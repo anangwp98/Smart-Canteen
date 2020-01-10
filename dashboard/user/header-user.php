@@ -98,7 +98,14 @@ include('query-user.php');
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.php">Dashboard</a>
         <!-- User -->
-
+  <?php
+  if(isset($_GET['pesan'])){
+    if($_GET['pesan'] == "transfer-success"){
+        echo "<center><b>Transfer Berhasil!</b></center>";
+        header('Refresh: 3; URL=./index.php');
+    }
+  }
+  ?>
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -162,7 +169,7 @@ include('query-user.php');
                       <span class="h2 font-weight-bold mb-0"><?php echo $status_pesanan?></span>
                         <?php
 
-                        if($jml_total_pesanan['total_pesanan'] > 0 ) {
+                        if($jml_total_pesanan['total_pesanan'] > 0 && $jml_total_pesanan['status'] == '' ) {
                           echo "
                           <form action='./proses.php' method='POST'>
                           <input type='text' value='$jml_total_pesanan1' name='total_bayar' hidden>
@@ -185,7 +192,7 @@ include('query-user.php');
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-xl-3 col-xl-5">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
@@ -225,13 +232,20 @@ include('query-user.php');
                         </div>";
                         } else {
                           echo "
-                                <p class='mt-3 mb-0 text-muted text-sm'>                                      
-                                    <button class='btn btn-icon btn-info btn-card-1' type='button' data-toggle='modal' data-target='#modal-input-topup'>
+                                <p class='mt-2 mb-0 text-muted text-sm-2'>                                      
+                                    <button class='btn btn-icon btn-info btn-card-2' type='button' data-toggle='modal' data-target='#modal-input-topup'>
                                     <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
 
                                     <span class='btn-inner--text'>Top Up</span>
                                   </button>
+                                  
+                                  <button class='btn btn-icon btn-info btn-card-2' type='button' data-toggle='modal' data-target='#modal-input-transfer'>
+                                    <span class='btn-inner--icon'><i class='fas fa-plus'></i></span>
+
+                                    <span class='btn-inner--text'>Transfer</span>
+                                  </button>
                                 </p>
+                               
                                 <div class='modal fade' id='modal-input-topup' tabindex='-1' role='dialog' aria-labelledby='modal-input-topup' aria-hidden='true'>
                                 <div class='modal-dialog modal- modal-dialog-centered modal-xl' role='document'>
                                   <div class='modal-content'>
@@ -253,6 +267,43 @@ include('query-user.php');
                                                 </div>
                                                 <div class='text-center'>
                                                   <input type='submit' name='input_topup' class='btn btn-primary my-4' value='Proses'>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class='modal fade' id='modal-input-transfer' tabindex='-1' role='dialog' aria-labelledby='modal-input-transfer' aria-hidden='true'>
+                                <div class='modal-dialog modal- modal-dialog-centered modal-xl' role='document'>
+                                  <div class='modal-content'>
+                                    <div class='modal-body p-0'>
+                                      <div class='card bg-secondary shadow border-0'>
+                                        <div class='card-header bg-transparent pb-0'>
+                                          <div class='text-muted text-center mt-2 mb-3'><small>Masukan ID dan Nominal!</small></div>
+                                            <div class='card-body px-lg-5 py-lg-5'>
+                                              <form action='./proses.php' method='POST'>
+                                                <div class='form-group mb-3'>
+                                                  <div class='input-group input-group-alternative'>
+                                                    <div class='input-group-prepend'>
+                                                      <span class='input-group-text'><i class='fas fa-archive'></i></span>
+                                                    </div>
+                                                    <input class='form-control' placeholder='id' type='text' name='id_penerima'>
+                                                  </div>
+                                                </div>
+                                                <div class='form-group mb-2'>
+                                                  <div class='input-group input-group-alternative'>
+                                                    <div class='input-group-prepend'>
+                                                      <span class='input-group-text'><i class='fas fa-archive'></i></span>
+                                                    </div>
+                                                    <input class='form-control' placeholder='Nominal' type='text' name='totaltransfer'>
+                                                  </div>
+                                                  <br>
+                                                </div>
+                                                <div class='text-center'>
+                                                  <input type='submit' name='input_transfer' class='btn btn-primary my-4' value='Proses'>
                                                 </div>
                                               </div>
                                             </form>
@@ -298,6 +349,7 @@ include('query-user.php');
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>

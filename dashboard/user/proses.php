@@ -50,7 +50,7 @@ if(isset($_POST['create_dompet'])) {
                 $querybayar = "UPDATE dompet SET saldo=$hasil WHERE id_user='$id_user'";
                 if(mysqli_query($koneksi, $querybayar)) {
                     
-                    $queryHapus = "DELETE FROM pemasanan WHERE id_user='$id_user'";
+                    $queryHapus = "UPDATE pemasanan SET status='SELESAI' WHERE id_user='$id_user'";
                     if(mysqli_query($koneksi, $queryHapus)) {
                         header("location:./view-pesanan.php");
                     } else {
@@ -64,5 +64,45 @@ if(isset($_POST['create_dompet'])) {
             }
         }
     }
+} else if(isset($_POST['input_transfer'])) {
+    $id                 = $_SESSION['id_user'];
+    $nama_user          = $_POST['id_penerima'];
+    $jml_tf     = $_POST['totaltransfer'];
+
+    $query_cek_saldo_transfer = "SELECT * FROM dompet WHERE id_user='$id'";
+    $hasil_query_cek_saldo_transfer = mysqli_query($koneksi, $query_cek_saldo_transfer); 
+    $total_record_query_cek_saldo_transfer = mysqli_num_rows($hasil_query_cek_saldo_transfer);
+
+    if($total_record_query_cek_saldo_transfer > 0 ) {
+        while($row_cek_tf = mysqli_fetch_assoc($hasil_query_cek_saldo_transfer)) {
+            if($jml_tf > $row_cek_tf['saldo']) {
+                ?><script type="text/javascript">
+                    alert("GAGAL Transfer!");
+                    window.location.href="index.php";
+                </script>
+                <?php 
+            } else {
+                $query_tf = "UPDATE `dompet` SET saldo = saldo+$jml_tf WHERE id_user='$nama_user'";
+                if( mysqli_query($koneksi, $query_tf)) {
+                    $query_pengirim = "UPDATE `dompet` SET saldo = saldo-$jml_tf WHERE id_user='$id'";
+                    if(mysqli_query($koneksi, $query_pengirim)) {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Berhasil Transfer! Selamat!");
+                            window.location.href="index.php";
+                        </script>
+                <?php
+                    } else {
+                        echo"<script language='javascript'> alert('Query Salah! Data Gagal Disimpan!');history.go(-1); </script>";
+                    }
+                }  else {
+                    echo"<script language='javascript'> alert('Query Salah! Data Gagal Disimpan!');history.go(-1); </script>";
+                }
+            }
+        }
+    }
+} else {
+    echo"<script language='javascript'> alert('Query Salah! Data Gagal Disimpan!');history.go(-1); </script>";
 }
+
 ?>
