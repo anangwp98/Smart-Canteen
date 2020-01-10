@@ -79,12 +79,7 @@
                         </tr>
                         </form>"; 
                 ?>
-                    <!--
-                ======================================================================================
-                        SCRIPT UNTUK MENAMPILKAN MODAL VIEW TOP UP DAN PROSES
-                ======================================================================================
-                -->
-                
+                   
                 <div class="modal fade" id="modal-view-topup<?php echo $row["id_topup"]; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-1-hapus" aria-hidden="true">
                 <form action="./proses.php" method="post">
                   <div class="modal-dialog modal-primary modal-dialog-centered modal-" role="document">

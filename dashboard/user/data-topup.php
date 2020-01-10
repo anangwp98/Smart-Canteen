@@ -84,7 +84,7 @@
               while($row = mysqli_fetch_assoc($hasil_topup_selesai)) {
                   echo "<tr>
                     <th scope='row'>" . $row["nama"]. "</th>
-                    <td> Rp. " . $row["jumlah_topup"].",-</td>
+                    <td> Rp. " . $row["jml_topup"].",-</td>
                     <td> " . $row["tanggal_topup"]."</td>
                     <td>
                     <button type='button' class='btn btn-outline-success' data-toggle='modal' data-target='#modal-view". $row["id_topup"] . "'>SELESAI</button </td>

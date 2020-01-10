@@ -8,7 +8,9 @@ if(isset($_POST['update'])){
     $jk             = $_POST['jenkel'];
     $tglLahir       = $_POST['tglLahir'];
     $alamat         = $_POST['alamat'];
-    $query = "UPDATE `user` SET `nama`='$nama', `email`='$email',  `jk`='$jk', `tgl_lahir`='$tglLahir', `alamat`='$alamat' WHERE `user`.`id_user`='$id'";
+    
+    $sqlDate        = date('Y-m-d', strtotime($tglLahir));
+    $query = "UPDATE `user` SET `nama`='$nama', `email`='$email',  `jk`='$jk', `tgl_lahir`='$sqlDate', `alamat`='$alamat' WHERE `user`.`id_user`='$id'";
     if(mysqli_query($koneksi, $query)) {
         header("location: profil-admin.php");
     } else {

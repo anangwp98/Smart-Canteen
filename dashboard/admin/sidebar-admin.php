@@ -63,26 +63,4 @@
             </a>
           </li>
         </ul>
-        <!-- Divider -->
-        <hr class="my-3">
-        <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Cetak Report</h6>
-        <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-spaceship"></i> User
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-palette"></i> Barang
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-ui-04"></i> Transaksi
-            </a>
-          </li>
-        </ul>
       </div>
