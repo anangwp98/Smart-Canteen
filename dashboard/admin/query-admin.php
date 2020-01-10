@@ -69,6 +69,23 @@ if(!isset($_SESSION['id_user'])){
       echo "Gagal mendapatkan data";
   }
 
+  $query_jml_topup = "SELECT COUNT(*) AS 'Jumlah' FROM topup WHERE status=''";
+  $sql_jml_topup= mysqli_query($koneksi, $query_jml_topup );
+  $jml_topup  = mysqli_fetch_array($sql_jml_topup);
+
+  $cek_data_topup = mysqli_num_rows($sql_jml_topup);
+  if ($cek_data_topup > 0){
+      $hasil_jml_topup = $jml_topup['Jumlah'];
+      if($jml_topup['Jumlah'] == 0) {
+          $view_topup = true;
+      } else {
+          $view_topup = false;
+      }
+  } else {
+      echo "Gagal mendapatkan data";
+  }
+
+
 
 }
 ?>

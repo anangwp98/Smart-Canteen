@@ -49,6 +49,21 @@
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Permintaan Top Up</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo  $hasil_jml_topup;?></span>
+                      <?php
+                      if ($view_topup == false) {
+                        echo "<br>   
+                          <a href='./view-topup.php'>                                                     
+                            <button class='btn btn-icon btn-secondary btn-card-1' type='button'>
+                            <span class='btn-inner--icon'><i class='far fa-eye'></i></span>
+
+                            <span class='btn-inner--text'>Lihat Data</span>
+
+                            </button>
+                          </a>";
+                    } else {
+                      
+                    }
+                      ?>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
