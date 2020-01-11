@@ -35,11 +35,6 @@
                 $data_cek_dompet_admin = 0;
             }
 
-            $data_cek_dompet_user = "SELECT user.id_user, user.nama, dompet.id_dompet, dompet.saldo FROM user JOIN dompet ON user.id_user=dompet.id_user WHERE user.level='user'";
-            $hasil_cek_dompet_user = mysqli_query($koneksi, $data_cek_dompet_user);
-            
-            $total_record_cek_dompet_user = mysqli_num_rows($hasil_cek_dompet_user);
-           
 
             $hasil_link = mysqli_query($koneksi, $data_link); 
 
@@ -73,7 +68,7 @@
                         
                         <td>".$row["tanggal_topup"]."</td>
                         <td scope='row'>
-                        <button type='button' class='btn btn-outline-primary' data-toggle='modal' data-target='#modal-view-topup". $row["id_topup"] . "'>Proses</button>
+                          <button type='button' class='btn btn-outline-primary' data-toggle='modal' data-target='#modal-view-topup". $row["id_topup"] . "'>Proses</button>
                             <button type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#modal-hapus-topup". $row["id_topup"] . "'>Hapus</button>
                         </td>
                         </tr>
